@@ -1,0 +1,398 @@
+body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #e9eff5;
+    margin: 0;
+    padding: 0;
+    color: #333;
+    line-height: 1.6;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 30px auto;
+    background-color: #fff;
+    padding: 30px 40px;
+    border-radius: 12px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* HEADER / BARRA DE NAVEGAÇÃO SUPERIOR */
+.top-bar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 20px;
+    margin-bottom: 30px;
+    border-bottom: 1px solid #eee;
+}
+
+.top-bar h1 {
+    font-size: 2.2em;
+    color: #1a73e8;
+    margin: 0;
+    text-align: left;
+}
+
+.top-bar nav {
+    display: flex;
+    gap: 15px;
+}
+
+.header-button {
+    background-color: #1a73e8;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.95em;
+    font-weight: bold;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+    text-decoration: none;
+    display: inline-block;
+}
+
+.header-button:hover {
+    background-color: #155cb7;
+    transform: translateY(-2px);
+}
+
+
+h1, h2.section-title {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 30px;
+    margin-bottom: 25px;
+    font-size: 1.8em;
+}
+
+hr {
+    border: none;
+    border-top: 1px dashed #cfd8dc;
+    margin: 40px 0;
+}
+
+/* Controles de Filtro */
+.controls {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-bottom: 30px;
+    padding: 20px;
+    background-color: #f0f4f7;
+    border-radius: 8px;
+    align-items: end;
+}
+
+.control-group {
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+}
+
+.control-group label {
+    font-weight: bold;
+    color: #555;
+    margin-bottom: 5px;
+}
+
+.controls select,
+.controls input[type="text"] {
+    padding: 10px 15px;
+    border: 1px solid #cdd4da;
+    border-radius: 5px;
+    font-size: 1em;
+    width: 100%;
+    box-sizing: border-box;
+}
+
+.controls .control-group.filter-city-group {
+    grid-column: span 1;
+}
+
+/* Estilo específico para o botão "Aplicar Filtros" */
+.controls button.full-width-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 18px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    grid-column: span 1;
+    align-self: end;
+    width: 100%;
+}
+
+.controls button.full-width-button:hover {
+    background-color: #0056b3;
+}
+
+/* Outros botões de ação */
+.action-button {
+    background-color: #007bff;
+    color: white;
+    padding: 12px 25px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 1em;
+    font-weight: bold;
+    transition: background-color 0.3s ease;
+    display: block;
+    width: auto;
+    margin: 20px auto;
+    text-decoration: none;
+    text-align: center;
+}
+
+.action-button:hover {
+    background-color: #0056b3;
+}
+
+/* Botões de adicionar/remover NF */
+.add-remove-btn {
+    background-color: #28a745;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    margin-left: 15px;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.add-remove-btn.remove {
+    background-color: #dc3545;
+}
+
+.add-remove-btn:hover {
+    background-color: #218838;
+}
+
+.add-remove-btn.remove:hover {
+    background-color: #c82333;
+}
+
+.hidden {
+    display: none !important;
+}
+
+#loadingMessage {
+    text-align: center;
+    font-style: italic;
+    color: #666;
+    margin-top: 20px;
+    padding: 10px;
+    background-color: #e3f2fd;
+    border-radius: 5px;
+}
+
+.notes-list {
+    list-style: none;
+    padding: 0;
+}
+
+.note-item {
+    background-color: #fdfdfd;
+    border: 1px solid #e0e0e0;
+    border-radius: 8px;
+    margin-bottom: 15px;
+    padding: 20px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05);
+    display: flex;
+    flex-wrap: wrap;
+    gap: 12px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.note-item div {
+    flex: 1 1 auto;
+    min-width: 150px;
+    font-size: 0.95em;
+}
+
+.note-item h3 {
+    margin-top: 0;
+    color: #1a73e8;
+    width: 100%;
+    margin-bottom: 10px;
+    font-size: 1.2em;
+}
+
+.note-item p strong {
+    color: #555;
+}
+
+/* Estilos para a área da Rota em Criação */
+.route-display {
+    background-color: #e6f2ff;
+    border: 1px solid #b3d9ff;
+    border-radius: 10px;
+    padding: 25px;
+    margin-top: 20px;
+    box-shadow: 0 3px 12px rgba(0, 0, 0, 0.08);
+}
+
+.route-display p {
+    margin: 8px 0;
+    font-size: 1.1em;
+}
+
+.route-display p strong {
+    color: #0056b3;
+}
+
+.route-display h3 {
+    margin-top: 20px;
+    color: #0056b3;
+}
+
+#activeRouteNfItems .note-item {
+    background-color: #ffffff;
+    border: 1px solid #cce0ff;
+    padding: 15px;
+}
+
+/* Estilos para a página de Relatórios de Rotas (rotas.html) */
+.routes-summary h2 {
+    margin-top: 0;
+}
+
+.route-item {
+    background-color: #f0f8ff;
+    border: 1px solid #cce0ff;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    padding: 15px;
+    box-shadow: 0 1px 4px rgba(0, 0, 0, 0.05);
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.route-item:hover {
+    background-color: #e0f0ff;
+}
+
+.route-item h3 {
+    margin-top: 0;
+    margin-bottom: 5px;
+    color: #007bff;
+}
+
+.route-item p {
+    margin: 3px 0;
+    font-size: 0.95em;
+}
+
+.remove-route-btn {
+    background-color: #dc3545;
+    color: white;
+    padding: 8px 15px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 0.85em;
+    transition: background-color 0.3s ease;
+    white-space: nowrap;
+}
+
+.remove-route-btn:hover {
+    background-color: #c82333;
+}
+
+
+.route-details-section {
+    margin-top: 30px;
+    padding: 20px;
+    background-color: #ffffff;
+    border: 1px solid #eee;
+    border-radius: 8px;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08);
+}
+
+.charts-container {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    gap: 20px;
+    margin-top: 20px;
+    margin-bottom: 30px;
+}
+
+.chart-box {
+    flex: 1;
+    min-width: 300px;
+    max-width: 45%;
+    background-color: #f9f9f9;
+    padding: 15px;
+    border-radius: 8px;
+    box-shadow: 0 1px 5px rgba(0, 0, 0, 0.05);
+}
+
+.chart-box h4 {
+    text-align: center;
+    color: #0056b3;
+    margin-top: 0;
+    margin-bottom: 15px;
+}
+
+#selectedRouteNfList .note-item {
+    background-color: #fdfdfd;
+    border: 1px solid #eee;
+    padding: 15px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.03);
+}
+
+/* Estilos responsivos */
+@media (max-width: 768px) {
+    .top-bar {
+        flex-direction: column;
+        gap: 15px;
+        padding-bottom: 15px;
+    }
+    .top-bar h1 {
+        text-align: center;
+    }
+    .top-bar nav {
+        flex-direction: column;
+        width: 100%;
+        gap: 10px;
+    }
+    .header-button {
+        width: 100%;
+    }
+
+    .controls {
+        grid-template-columns: 1fr;
+    }
+    .controls select,
+    .controls input[type="text"],
+    .controls button {
+        width: 100%;
+    }
+    .note-item {
+        flex-direction: column;
+        gap: 8px;
+        align-items: flex-start;
+    }
+    .note-item div {
+        min-width: unset;
+    }
+    .note-item .add-remove-btn {
+        width: 100%;
+        margin-left: 0;
+        margin-top: 10px;
+    }
+    .chart-box {
+        max-width: 100%;
+    }
+}

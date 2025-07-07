@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Relatórios de Rotas - Sistema de Rotas</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <div class="container">
+        <h1>Relatórios de Rotas</h1>
+        <button class="action-button" onclick="location.href='index.html'">Voltar para Montar Rota</button>
+        <hr>
+
+        <div class="routes-summary">
+            <h2>Lista de Rotas Criadas</h2>
+            <div id="loadingRoutesMessage">Carregando rotas...</div>
+            <ul id="routesList" class="notes-list">
+                </ul>
+        </div>
+
+        <hr>
+
+        <div class="route-details-section hidden" id="routeDetailsSection">
+            <h2>Detalhes da Rota Selecionada: <span id="selectedRouteName"></span></h2>
+            <p><strong>ID da Rota:</strong> <span id="selectedRouteId">N/A</span></p>
+            <p><strong>Status:</strong> <span id="selectedRouteStatus">N/A</span></p>
+            <p><strong>Data de Criação:</strong> <span id="selectedRouteDate">N/A</span></p>
+            <p><strong>Peso Total:</strong> <span id="selectedRouteWeight">0.000</span> kg</p>
+            <p><strong>Volumes Total:</strong> <span id="selectedRouteVolumes">0</span></p>
+            <p><strong>Valor Total:</strong> R$ <span id="selectedRouteValue">0,00</span></p>
+            <p><strong>Cidades Atendidas:</strong> <span id="selectedRouteCities">N/A</span></p>
+
+            <h3>Gráficos da Rota</h3>
+            <div class="charts-container">
+                <div class="chart-box">
+                    <h4>Peso Total por Rota</h4>
+                    <canvas id="weightChart"></canvas>
+                </div>
+                <div class="chart-box">
+                    <h4>Volumes Totais por Rota</h4>
+                    <canvas id="volumesChart"></canvas>
+                </div>
+            </div>
+
+            <h3>Notas Fiscais da Rota</h3>
+            <ul id="selectedRouteNfList" class="notes-list">
+                </ul>
+        </div>
+    </div>
+
+    <script src="rotas_script.js"></script>
+</body>
+</html>

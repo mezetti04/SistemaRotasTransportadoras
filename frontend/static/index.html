@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistema de Rotas - Notas Fiscais</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="container">
+        <header class="top-bar">
+            <h1>Sistema de Rotas</h1>
+            <nav>
+                <button id="createRouteButton" class="header-button">Montar Nova Rota</button>
+                <button id="viewRoutesButton" class="header-button" onclick="location.href='rotas.html'">Ver Rotas e Relatórios</button>
+            </nav>
+        </header>
+
+        <h2 class="section-title">Rota em Criação</h2>
+        <div id="currentRouteDisplay" class="route-display">
+            <p id="routeStatus">Nenhuma rota em criação.</p>
+            <p><strong>Nome da Rota:</strong> <span id="routeName">N/A</span></p>
+            <p><strong>ID da Rota:</strong> <span id="routeId">N/A</span></p>
+            <p><strong>Peso Total:</strong> <span id="routeWeight">0.000</span> kg</p>
+            <p><strong>Volumes Total:</strong> <span id="routeVolumes">0</span></p>
+            <p><strong>Valor Total:</strong> R$ <span id="routeValue">0,00</span></p>
+            <p><strong>Cidades Atendidas:</strong> <span id="routeCities">N/A</span></p>
+            <div id="routeNfList">
+                <h3>Notas Fiscais nesta Rota:</h3>
+                <ul id="activeRouteNfItems" class="notes-list">
+                    </ul>
+            </div>
+            <button id="finalizeRouteButton" class="action-button hidden">Finalizar Rota</button>
+        </div>
+
+        <hr> <h2 class="section-title">Notas Fiscais Disponíveis para Roteirização</h2>
+        <div class="controls filter-grid">
+            <div class="control-group">
+                <label for="orderBy">Ordenar por:</label>
+                <select id="orderBy">
+                    <option value="dhSaiEnt">Data Saída/Entrada</option> <option value="cliente_nome">Nome do Cliente</option>
+                    <option value="valor_total_nf">Valor Total NF</option>
+                    <option value="peso_bruto">Peso Bruto</option>
+                    <option value="quantidade_volumes">Volumes</option>
+                </select>
+                <select id="direction">
+                    <option value="asc">Crescente</option>
+                    <option value="desc">Decrescente</option>
+                </select>
+            </div>
+
+            <div class="control-group filter-city-group">
+                <label for="filterCidade">Filtrar por Cidade:</label>
+                <select id="filterCidade">
+                    <option value="">Todas as Cidades</option>
+                </select>
+            </div>
+            
+            <button id="applyFilters" class="full-width-button">Aplicar Filtros</button>
+        </div>
+
+        <div id="loadingMessage">Carregando notas fiscais...</div>
+        <ul id="notasList" class="notes-list">
+            </ul>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
